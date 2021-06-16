@@ -1,0 +1,201 @@
+<template>
+  <div>
+    <div class=" px-4 bg-white  mt-n3">
+      <b-row class="d-flex">
+        <b-col class="mr-auto">
+
+          <div class="d-flex flex-row">
+            <div class="p-2">
+
+              <!--   back button-->
+              <b-button
+                class="btn-sm-block border-1"
+                variant="white"
+                :to="{ path: '/teams/team_list'}">
+                <md-icon>
+                  arrow_back_ios
+                </md-icon>
+              </b-button>
+            </div>
+            <div class="pt-3">
+              <h5>
+                New Team
+              </h5>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
+    </div>
+
+    <b-container
+      md="8"
+      class="mt-3">
+
+      <b-row>
+        <b-col
+          md="4"
+          class="mt-3">
+          <h5>Team details</h5>
+        </b-col>
+        <b-col
+          md="8"
+          class="mt-3">
+
+          <b-form
+            @submit.prevent="updateProfileInformation">
+            <b-card>
+
+              <!--  name -->
+              <b-form-group label-for="lname">
+                <template v-slot:label>
+                  Team Name
+                </template>
+                <b-form-input
+                  id="tname"
+                  type="text"
+                  placeholder="Enter team name" />
+              </b-form-group>
+
+              <!-- owner name -->
+              <b-form-group label-for="owner">
+                <template v-slot:label>
+                  Owner
+                </template>
+                <b-form-input
+                  id="owner"
+                  type="text"
+                  placeholder="Enter owner name" />
+              </b-form-group>
+
+              <!-- email -->
+              <b-form-group label-for="name">
+                <template v-slot:label>
+                  Email
+                </template>
+                <b-form-input
+                  id="email"
+                  type="email"
+                  placeholder="Enter email" />
+              </b-form-group>
+
+              <!-- phone number -->
+              <b-form-group label-for="phone">
+                <template v-slot:label>
+                  Phone Number
+                </template>
+                <b-form-input
+                  id="phone"
+                  type="text"
+                  placeholder="Enter phone number" />
+              </b-form-group>
+
+            </b-card>
+          </b-form>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col
+          md="4"
+          class="mt-3">
+          <h5>Configurations</h5>
+        </b-col>
+        <b-col
+          md="8"
+          class="mt-3">
+          <b-card>
+            <!-- form -->
+
+            <!-- current password -->
+            <b-form-group label-for="currentpassword">
+              <template v-slot:label>
+                Local
+              </template>
+              <b-select
+                name="customers.locale">
+                <option value="">
+                  Select Locale
+                </option>
+                <option value="en">
+                  English
+                </option>
+                <option value="en-AU">
+                  English (Australia)
+                </option>
+                <option value="en-CA">
+                  English (Canada)
+                </option>
+                <option value="en-IN">
+                  English (India)
+                </option>
+                <option value="en-IE">
+                  English (Ireland)
+                </option>
+                <option value="en-MT">
+                  English (Malta)
+                </option>
+              </b-select>
+            </b-form-group>
+
+            <!-- password -->
+            <b-form-group label-for="newpassword">
+              <template v-slot:label>
+                Preferred Currency
+              </template>
+              <b-select
+                id="customer.currency"
+                validate="true">
+                <option>
+                  Select Currency
+                </option>
+                <option value="300">
+                  GBP
+                </option>
+              </b-select>
+            </b-form-group>
+
+            <div
+              class="d-flex justify-content-end">
+
+              <!--   create button-->
+              <b-button
+                class="mt-n2 ml-2"
+                type="submit"
+                variant="primary">
+                create new team
+              </b-button>
+
+              <!--   cancel button-->
+              <b-button
+                class="mt-n2 ml-2"
+                type="submit"
+                variant="outline-primary">
+                cancel
+              </b-button>
+            </div>
+          </b-card>
+        </b-col>
+      </b-row>
+
+    </b-container>
+  </div>
+</template>
+
+<script>
+
+export default {
+  layout: 'fixed',
+
+  data() {
+    return {
+    }
+  },
+  methods: {
+
+  },
+}
+</script>
+
+<style>
+
+</style>
